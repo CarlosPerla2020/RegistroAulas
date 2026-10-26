@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,18 +16,32 @@
     
     <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Gestión de Aulas"/>
     
-    <HBox spacing="10.0">
-        <TextField fx:id="txtNombre" promptText="Nombre del Aula (ej. C-11)"/>
-        <TextField fx:id="txtCapacidad" promptText="Capacidad"/>
-        <Button onAction="#guardarAula" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Guardar"/>
-    </HBox>
+    <VBox spacing="10.0">
+        <HBox spacing="10.0">
+            <TextField fx:id="txtNombre" promptText="Nombre (ej. C-11)"/>
+            <ComboBox fx:id="cmbEdificio" promptText="Edificio"/>
+            <ComboBox fx:id="cmbPlanta" promptText="Planta"/>
+            <TextField fx:id="txtCapacidad" promptText="Capacidad"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <ComboBox fx:id="cmbTipoAula" promptText="Tipo Aula"/>
+            <TextField fx:id="txtResponsable" promptText="Responsable"/>
+            <ComboBox fx:id="cmbEstado" promptText="Estado"/>
+            <Button onAction="#guardarAula" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="Guardar"/>
+        </HBox>
+    </VBox>
     
     <Label fx:id="lblMensaje" textFill="RED"/>
     
     <TableView fx:id="tablaAulas" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre Aula"/>
-            <TableColumn fx:id="colCapacidad" prefWidth="100.0" text="Capacidad"/>
+            <TableColumn fx:id="colNombre" prefWidth="80.0" text="Aula"/>
+            <TableColumn fx:id="colEdificio" prefWidth="100.0" text="Edificio"/>
+            <TableColumn fx:id="colPlanta" prefWidth="80.0" text="Planta"/>
+            <TableColumn fx:id="colCapacidad" prefWidth="80.0" text="Capacidad"/>
+            <TableColumn fx:id="colTipoAula" prefWidth="100.0" text="Tipo"/>
+            <TableColumn fx:id="colResponsable" prefWidth="100.0" text="Responsable"/>
+            <TableColumn fx:id="colEstado" prefWidth="100.0" text="Estado"/>
         </columns>
     </TableView>
 </VBox>
