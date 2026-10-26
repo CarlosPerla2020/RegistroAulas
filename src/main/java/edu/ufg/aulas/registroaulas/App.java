@@ -5,24 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        // Aquí le indicamos que busque la carpeta vistas y cargue login.fxml
+        scene = new Scene(loadFXML("/vistas/login"), 600, 400);
         stage.setScene(scene);
+        stage.setTitle("Registro de Aulas - Inicio");
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -34,5 +32,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
